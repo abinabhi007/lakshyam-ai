@@ -1,0 +1,70 @@
+.statCard {
+  background-color: #ffffff;
+  border: 1px solid rgba(215, 194, 189, 0.2);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  height: 100%;
+  transition: box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.cardTitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #524440;
+  margin-bottom: 0;
+}
+
+.iconWrapper {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: rgba(255, 220, 189, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b3b2e;
+}
+
+.valWrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #6b3b2e;
+}
+
+.limit {
+  font-size: 0.75rem;
+  color: #524440;
+}
+
+.footerText {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.textSuccess {
+  color: #6b3b2e;
+}
+
+.textMuted {
+  color: #524440;
+}

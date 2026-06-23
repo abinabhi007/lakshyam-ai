@@ -1,0 +1,36 @@
+.statsSection {
+  background-color: rgba(255, 248, 246, 0.5);
+  border-top: 1px solid rgba(215, 194, 189, 0.2);
+  border-bottom: 1px solid rgba(215, 194, 189, 0.2);
+  padding: 3rem 0;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  text-align: center;
+}
+
+.statVal {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #6b3b2e;
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #524440;
+}
+
+.divider {
+  width: 1px;
+  height: 3rem;
+  background-color: rgba(215, 194, 189, 0.3);
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}

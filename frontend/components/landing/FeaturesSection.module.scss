@@ -1,0 +1,68 @@
+.featuresSection {
+  padding: 5rem 0;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.sectionHeader {
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #201a19;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 1rem;
+  color: #524440;
+  max-width: 680px;
+  line-height: 1.6;
+}
+
+.featureCard {
+  background-color: #ffffff;
+  border: 1px solid rgba(215, 194, 189, 0.2);
+  border-radius: 0.75rem;
+  padding: 2.5rem;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 10px 30px -10px rgba(36, 9, 1, 0.08);
+  }
+}
+
+.iconWrapper {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  background-color: #fdf1ee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b3b2e;
+  border: 1px solid rgba(215, 194, 189, 0.3);
+  margin-bottom: 1.5rem;
+
+  span {
+    font-size: 1.5rem;
+  }
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #201a19;
+  margin-bottom: 1rem;
+}
+
+.cardText {
+  font-size: 0.95rem;
+  color: #524440;
+  line-height: 1.6;
+  margin-bottom: 0;
+}

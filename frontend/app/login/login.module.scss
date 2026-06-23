@@ -1,0 +1,269 @@
+.loginPage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: #fff8f6;
+}
+
+.loginCard {
+  width: 100%;
+  max-width: 1000px;
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(215, 194, 189, 0.2);
+  box-shadow: 0 10px 30px -10px rgba(36, 9, 1, 0.08);
+  overflow: hidden;
+}
+
+.brandArea {
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoWrapper {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  background-color: #6b3b2e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.brandName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #6b3b2e;
+  text-decoration: none;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #201a19;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #524440;
+  font-size: 1rem;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.inputLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #524440;
+  margin-bottom: 0.25rem;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #d7c2bd;
+}
+
+.inputField {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid rgba(215, 194, 189, 0.5);
+  border-radius: 0.5rem;
+  background-color: rgba(80, 37, 26, 0.05);
+  color: #201a19;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease-in-out;
+
+  &:focus {
+    border-color: #6b3b2e;
+    outline: none;
+  }
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #d7c2bd;
+
+  &:hover {
+    color: #6b3b2e;
+  }
+}
+
+.btnSubmit {
+  background-color: #6b3b2e;
+  color: #ffffff;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  font-weight: 500;
+  width: 100%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: opacity 0.15s ease-in-out;
+
+  &:hover {
+    opacity: 0.9;
+    color: #ffffff;
+  }
+}
+
+.divider {
+  position: relative;
+  text-align: center;
+  margin: 1.5rem 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: rgba(215, 194, 189, 0.2);
+    z-index: 1;
+  }
+
+  span {
+    position: relative;
+    z-index: 2;
+    background-color: #ffffff;
+    padding: 0 0.5rem;
+    color: #524440;
+    font-size: 0.875rem;
+  }
+}
+
+.btnSso {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem;
+  border: 1px solid rgba(215, 194, 189, 0.3);
+  background-color: #ffffff;
+  color: #201a19;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: background-color 0.15s ease-in-out;
+
+  &:hover {
+    background-color: #fdf1ee;
+  }
+}
+
+.signUpText {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #524440;
+
+  a {
+    color: #6b3b2e;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      border-bottom-color: #6b3b2e;
+    }
+  }
+}
+
+.visualPanel {
+  position: relative;
+  background-color: #f1e6e3;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.visualBg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #f1e6e3, #ece0dd, #ffdcbd);
+  opacity: 0.5;
+}
+
+.visualImageWrapper {
+  position: absolute;
+  inset: 0;
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visualImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(215, 194, 189, 0.1);
+  opacity: 0.9;
+  mix-blend-mode: multiply;
+}
+
+.visualOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2.5rem;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  background-color: rgba(236, 224, 221, 0.3);
+  border-top: 1px solid rgba(215, 194, 189, 0.1);
+}
+
+.overlayTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #201a19;
+  margin-bottom: 0.5rem;
+}
+
+.overlayText {
+  font-size: 0.95rem;
+  color: #524440;
+  margin-bottom: 1rem;
+}
+
+.indicatorWrapper {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.indicatorDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: rgba(215, 194, 189, 0.4);
+
+  &.active {
+    background-color: #6b3b2e;
+  }
+}

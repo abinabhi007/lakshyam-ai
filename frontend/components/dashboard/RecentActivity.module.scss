@@ -1,0 +1,144 @@
+.card {
+  background-color: #ffffff;
+  border: 1px solid rgba(215, 194, 189, 0.2);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(215, 194, 189, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #201a19;
+  margin-bottom: 0;
+}
+
+.btnViewAll {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6b3b2e;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.tableResponsive {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 0;
+  border-collapse: collapse;
+}
+
+.thead {
+  background-color: #f7ebe9;
+}
+
+.th {
+  padding: 1rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #524440;
+  border-bottom: 1px solid rgba(215, 194, 189, 0.1);
+}
+
+.tr {
+  transition: background-color 0.15s ease-in-out;
+
+  &:hover {
+    background-color: #fff8f6;
+  }
+}
+
+.td {
+  padding: 1.25rem 1.5rem;
+  font-size: 0.875rem;
+  color: #201a19;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(215, 194, 189, 0.1);
+}
+
+.activityInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.iconWrapper {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconDoc {
+  background-color: rgba(114, 90, 65, 0.15);
+  color: #725a41;
+}
+
+.iconMic {
+  background-color: rgba(80, 37, 26, 0.1);
+  color: #6b3b2e;
+}
+
+.activityName {
+  font-weight: 500;
+}
+
+.date {
+  color: #524440;
+}
+
+.scoreBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 50rem;
+  background-color: rgba(255, 220, 189, 0.2);
+  color: #796046;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.reviewBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 50rem;
+  background-color: #f1e6e3;
+  color: #201a19;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.btnAction {
+  background: transparent;
+  border: none;
+  color: #524440;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 50%;
+  transition: background-color 0.15s ease-in-out;
+
+  &:hover {
+    background-color: #f1e6e3;
+    color: #6b3b2e;
+  }
+}

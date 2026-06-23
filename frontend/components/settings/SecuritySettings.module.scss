@@ -1,0 +1,59 @@
+.section {
+  background-color: #ffffff;
+  border: 1px solid rgba(215, 194, 189, 0.2);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #201a19;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: #84736f;
+  margin-bottom: 1.5rem;
+}
+
+.formLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #201a19;
+  margin-bottom: 0.5rem;
+}
+
+.inputField {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: #fff8f6;
+  border: 1px solid rgba(215, 194, 189, 0.3);
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  color: #201a19;
+  transition: border-color 0.15s ease-in-out;
+
+  &:focus {
+    border-color: #6b3b2e;
+    outline: none;
+  }
+}
+
+.btnUpdate {
+  background-color: transparent;
+  color: #725a41;
+  border: 1px solid #725a41;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.15s ease-in-out;
+
+  &:hover {
+    background-color: #fdf1ee;
+    color: #725a41;
+  }
+}

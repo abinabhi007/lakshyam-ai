@@ -1,0 +1,58 @@
+.navbar {
+  background-color: #fff8f6;
+  border-bottom: 1px solid rgba(215, 194, 189, 0.2);
+  transition: all 0.2s ease-in-out;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+}
+
+.brand {
+  font-weight: 700;
+  color: #6b3b2e;
+  text-decoration: none;
+  font-size: 1.25rem;
+
+  &:hover {
+    opacity: 0.9;
+    color: #6b3b2e;
+  }
+}
+
+.navLink {
+  color: #524440;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease-in-out;
+
+  &:hover {
+    color: #6b3b2e;
+  }
+}
+
+.loginLink {
+  color: #524440;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease-in-out;
+
+  &:hover {
+    color: #6b3b2e;
+  }
+}
+
+.btnStart {
+  background-color: #6b3b2e;
+  color: #ffffff;
+  border-radius: 0.5rem; // lg
+  padding: 0.5rem 1.25rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.15s ease-in-out;
+  border: none;
+
+  &:hover {
+    opacity: 0.9;
+    color: #ffffff;
+  }
+}

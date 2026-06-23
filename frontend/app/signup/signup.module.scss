@@ -1,0 +1,233 @@
+.signupPage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: #fff8f6;
+}
+
+.signupCard {
+  width: 100%;
+  max-width: 1000px;
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(215, 194, 189, 0.2);
+  box-shadow: 0 10px 30px -10px rgba(36, 9, 1, 0.08);
+  overflow: hidden;
+}
+
+.brandArea {
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoWrapper {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  background-color: #6b3b2e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.brandName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #6b3b2e;
+  text-decoration: none;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #201a19;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #524440;
+  font-size: 1rem;
+}
+
+.formGroup {
+  margin-bottom: 1.25rem;
+}
+
+.inputLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #524440;
+  margin-bottom: 0.25rem;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #d7c2bd;
+}
+
+.inputField {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid rgba(215, 194, 189, 0.5);
+  border-radius: 0.5rem;
+  background-color: rgba(80, 37, 26, 0.05);
+  color: #201a19;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease-in-out;
+
+  &:focus {
+    border-color: #6b3b2e;
+    outline: none;
+  }
+}
+
+.btnSubmit {
+  background-color: #6b3b2e;
+  color: #ffffff;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  font-weight: 500;
+  width: 100%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.15s ease-in-out;
+
+  &:hover {
+    opacity: 0.9;
+    color: #ffffff;
+  }
+}
+
+.loginText {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #524440;
+
+  a {
+    color: #6b3b2e;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      border-bottom-color: #6b3b2e;
+    }
+  }
+}
+
+.visualPanel {
+  position: relative;
+  background-color: #fdf1ee;
+  border-left: 1px solid rgba(80, 37, 26, 0.05);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem;
+}
+
+.visualBg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #fdf1ee, #f7ebe9, #f1e6e3);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.decorTopRight {
+  position: absolute;
+  top: -4rem;
+  right: -4rem;
+  width: 16rem;
+  height: 16rem;
+  background-color: rgba(80, 37, 26, 0.05);
+  border-radius: 50%;
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.decorBottomLeft {
+  position: absolute;
+  bottom: -4rem;
+  left: -4rem;
+  width: 16rem;
+  height: 16rem;
+  background-color: rgba(114, 90, 65, 0.05);
+  border-radius: 50%;
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.panelContent {
+  position: relative;
+  z-index: 10;
+}
+
+.panelIcon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+  border: 1px solid rgba(215, 194, 189, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+
+  span {
+    font-size: 2rem;
+    color: #6b3b2e;
+  }
+}
+
+.panelTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #201a19;
+  margin-bottom: 1rem;
+}
+
+.panelText {
+  font-size: 1rem;
+  color: #524440;
+  line-height: 1.6;
+}
+
+.testimonialBlock {
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid rgba(215, 194, 189, 0.2);
+  padding-top: 2rem;
+  margin-top: auto;
+}
+
+.rating {
+  color: #725a41;
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.testimonialText {
+  font-size: 0.875rem;
+  color: #524440;
+  font-style: italic;
+  margin-bottom: 0;
+}
