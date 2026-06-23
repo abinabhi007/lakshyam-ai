@@ -6,8 +6,26 @@ import StatCards from "@/components/dashboard/StatCards";
 import QuickActions from "@/components/dashboard/QuickActions";
 import GrowthProgress from "@/components/dashboard/GrowthProgress";
 import RecentActivity from "@/components/dashboard/RecentActivity";
+import { getProfile,refreshToken } from "@/services/authService";
+import { useEffect, useState } from "react";
 
 export default function DashboardPage() {
+  const [user, setUser] = useState(null);
+  useEffect(()=>{
+    const loadProfile = async () => {
+      try {
+        const response = await getProfile();
+        setUser(response?.username);
+        console.log(response,"res")
+      } catch (error) {
+        await refreshToken();
+        const response = await getProfile();
+        setUser(response?.username);
+      }
+    };
+    loadProfile();
+  },[]);
+
   return (
     <div className="bg-light min-h-screen font-sans">
       {/* Sidebar Navigation */}
@@ -23,7 +41,7 @@ export default function DashboardPage() {
           {/* Header Section */}
           <div className="mb-4">
             <h2 className="text-primary font-weight-bold">
-              Welcome back, Abin 👋
+              Welcome back, {user}
             </h2>
             <p className="text-muted mt-2">
               Here's an overview of your career progress today.

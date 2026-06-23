@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, FormEvent } from "react";
 import styles from "./signup.module.scss";
+import { register } from "@/services/authService";
+import toast from "react-hot-toast";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -11,9 +13,16 @@ export default function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    router.push("/dashboard");
+    try {
+      await register(email, password,username);
+      toast.success("User registered successfully")
+      router.push("/login");
+    } catch (error) {
+      console.error("Error during signup:", error);
+      toast.error("Failed to register")
+    }
   };
 
   return (

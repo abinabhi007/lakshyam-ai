@@ -4,15 +4,23 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, FormEvent } from "react";
 import styles from "./login.module.scss";
+import {login} from "@/services/authService"
+import toast from "react-hot-toast";
 
 export default function LoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    router.push("/dashboard");
+    try{
+      await login(username, password);
+      router.push("/dashboard");
+    }catch(error){
+      console.error("Error during login:", error);
+      toast.error("Failed to login")
+    }
   };
 
   return (
@@ -46,7 +54,7 @@ export default function LoginPage() {
               {/* Username Field */}
               <div className={styles.formGroup}>
                 <label className={styles.inputLabel} htmlFor="username">
-                  Username or Email
+                  Username
                 </label>
                 <div className={styles.inputWrapper}>
                   <span className={`material-symbols-outlined ${styles.inputIcon}`}>
@@ -55,10 +63,10 @@ export default function LoginPage() {
                   <input
                     className={styles.inputField}
                     id="username"
-                    placeholder="Enter your email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your username"
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                     required
                   />
                 </div>

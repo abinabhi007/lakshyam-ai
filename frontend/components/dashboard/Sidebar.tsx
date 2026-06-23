@@ -3,8 +3,23 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./Sidebar.module.scss";
+import { logout } from "@/services/authService";
+import toast from "react-hot-toast";
+
 
 export default function Sidebar() {
+  const handleLogout = async () => {
+    try {
+      await logout();
+      toast.success("Logout Successfully");
+      localStorage.removeItem("access");
+      localStorage.removeItem("refresh");
+      window.location.href = "/";
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
+  };
+
   const pathname = usePathname();
 
   const getLinkClass = (path: string) => {
@@ -64,10 +79,10 @@ export default function Sidebar() {
           <span>Settings</span>
         </Link>
 
-        <Link href="/" className={styles.logoutItem}>
+        <button className={styles.logoutItem} onClick={handleLogout}>
           <span className="material-symbols-outlined">logout</span>
           <span>Logout</span>
-        </Link>
+        </button>
       </div>
     </nav>
   );

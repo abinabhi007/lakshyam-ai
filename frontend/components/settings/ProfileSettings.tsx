@@ -3,9 +3,9 @@
 import { useState, FormEvent } from "react";
 import styles from "./ProfileSettings.module.scss";
 
-export default function ProfileSettings() {
-  const [name, setName] = useState("Jane Doe");
-  const [email, setEmail] = useState("jane.doe@example.com");
+export default function ProfileSettings(props: any) {
+  const [name, setName] = useState(props.userName);
+  const [email, setEmail] = useState(props.email);
   const [bio, setBio] = useState("Experienced Product Manager transitioning to AI tech.");
 
   const handleSubmit = (e: FormEvent) => {

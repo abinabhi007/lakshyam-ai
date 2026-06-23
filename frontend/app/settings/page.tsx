@@ -4,8 +4,29 @@ import Sidebar from "@/components/dashboard/Sidebar";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import ProfileSettings from "@/components/settings/ProfileSettings";
 import SecuritySettings from "@/components/settings/SecuritySettings";
+import { useEffect, useState } from "react";
+import { getProfile,refreshToken } from "@/services/authService";
 
 export default function SettingsPage() {
+  const [user, setUser] = useState("");
+  const [userMail,setUserMail] = useState("");
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const response = await getProfile();
+        setUser(response?.username);
+        setUserMail(response?.email);
+      } catch (error) {
+        await refreshToken();
+        const response = await getProfile();
+        setUser(response?.username);
+        setUserMail(response?.email);
+      }
+    };
+    fetchProfile();
+  }, []);
+
   return (
     <div className="bg-light min-h-screen font-sans">
       {/* Sidebar Navigation */}
@@ -31,7 +52,7 @@ export default function SettingsPage() {
 
           <div className="d-flex flex-column gap-4 mt-4">
             {/* Profile Information */}
-            <ProfileSettings />
+            <ProfileSettings userName={user} email={userMail}/>
 
             {/* Security */}
             <SecuritySettings />
