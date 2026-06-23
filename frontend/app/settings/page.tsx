@@ -5,11 +5,12 @@ import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import ProfileSettings from "@/components/settings/ProfileSettings";
 import SecuritySettings from "@/components/settings/SecuritySettings";
 import { useEffect, useState } from "react";
-import { getProfile,refreshToken } from "@/services/authService";
+import { getProfile, refreshToken } from "@/services/authService";
+import styles from "@/components/dashboard/DashboardLayout.module.scss";
 
 export default function SettingsPage() {
   const [user, setUser] = useState("");
-  const [userMail,setUserMail] = useState("");
+  const [userMail, setUserMail] = useState("");
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -17,42 +18,43 @@ export default function SettingsPage() {
         const response = await getProfile();
         setUser(response?.username);
         setUserMail(response?.email);
-      } catch (error) {
-        await refreshToken();
-        const response = await getProfile();
-        setUser(response?.username);
-        setUserMail(response?.email);
+      } catch {
+        try {
+          await refreshToken();
+          const response = await getProfile();
+          setUser(response?.username);
+          setUserMail(response?.email);
+        } catch (err) {
+          console.error("Failed to load profile:", err);
+        }
       }
     };
     fetchProfile();
   }, []);
 
   return (
-    <div className="bg-light min-h-screen font-sans">
+    <div className={styles.layout}>
       {/* Sidebar Navigation */}
       <Sidebar />
 
-      {/* Main Container */}
-      <div className="md:ml-64 d-flex flex-column min-h-screen">
+      {/* Main Container — offset on desktop */}
+      <div className={styles.mainWrapper}>
         {/* Top Navbar */}
         <DashboardHeader />
 
         {/* Page Content */}
-        <main 
-          className="p-4 p-md-5 mx-auto w-100 flex-grow-1" 
-          style={{ maxWidth: "896px" }}
-        >
+        <main className={styles.pageContent} style={{ maxWidth: "960px" }}>
           {/* Header */}
           <div className="mb-4">
-            <h2 className="text-primary font-weight-bold">Settings</h2>
+            <h2 className="fw-bold" style={{ color: "#6b3b2e" }}>Settings</h2>
             <p className="text-muted mt-2">
               Manage your account preferences and security.
             </p>
           </div>
 
-          <div className="d-flex flex-column gap-4 mt-4">
+          <div className="d-flex flex-column gap-4">
             {/* Profile Information */}
-            <ProfileSettings userName={user} email={userMail}/>
+            <ProfileSettings userName={user} email={userMail} />
 
             {/* Security */}
             <SecuritySettings />
@@ -62,4 +64,3 @@ export default function SettingsPage() {
     </div>
   );
 }
-

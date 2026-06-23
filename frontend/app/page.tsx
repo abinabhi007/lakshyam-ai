@@ -7,9 +7,9 @@ import Footer from "@/components/landing/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen selection:bg-primary-container/20 flex flex-col font-sans">
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", fontFamily: "'Inter', system-ui, sans-serif", backgroundColor: "#fff8f6" }}>
       <LandingNav />
-      <main className="flex-grow">
+      <main style={{ flex: "1 1 auto" }}>
         <HeroSection />
         <StatsSection />
         <FeaturesSection />
@@ -19,5 +19,3 @@ export default function Home() {
     </div>
   );
 }
-
-

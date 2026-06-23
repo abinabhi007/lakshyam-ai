@@ -31,7 +31,7 @@ export default function SignupPage() {
         <div className="row g-0">
           
           {/* Left Side: Form */}
-          <div className="col-12 col-md-6 p-4 p-md-5 d-flex flex-col justify-content-center">
+          <div className="col-12 col-md-6 p-4 p-md-5 d-flex flex-column justify-content-center">
             <div className={styles.brandArea}>
               <div className={styles.logoWrapper}>
                 <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>
@@ -133,7 +133,7 @@ export default function SignupPage() {
           </div>
 
           {/* Right Side: Visual Panel */}
-          <div className="col-6 d-none d-md-block">
+          <div className="col-md-6 d-none d-md-flex">
             <div className={styles.visualPanel}>
               <div className={styles.visualBg}></div>
               <div className={styles.decorTopRight}></div>

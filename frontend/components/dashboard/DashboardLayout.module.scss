@@ -1,0 +1,28 @@
+// Dashboard Layout — responsive sidebar-offset wrapper
+
+.layout {
+  min-height: 100vh;
+  background-color: #fff8f6;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Sidebar offset for desktop */
+.mainWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  @media (min-width: 768px) {
+    margin-left: 16rem; // 256px — matches sidebar width
+  }
+}
+
+.pageContent {
+  flex: 1 1 auto;
+  padding: 1.5rem;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    padding: 2rem 2.5rem;
+  }
+}

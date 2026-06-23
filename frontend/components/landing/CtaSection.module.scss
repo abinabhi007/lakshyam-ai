@@ -1,14 +1,16 @@
 .ctaSection {
-  padding: 5rem 0;
-  max-width: 1440px;
-  margin: 0 auto;
+  padding: 3rem 0;
+
+  @media (min-width: 768px) {
+    padding: 5rem 0;
+  }
 }
 
 .ctaCard {
   background-color: #fdf1ee;
   border-radius: 0.75rem;
   border: 1px solid rgba(215, 194, 189, 0.4);
-  padding: 5rem 2rem;
+  padding: 3rem 1.5rem;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -17,6 +19,10 @@
   justify-content: center;
   text-align: center;
   gap: 1.5rem;
+
+  @media (min-width: 768px) {
+    padding: 5rem 2rem;
+  }
 }
 
 .decorTopRight {
@@ -44,21 +50,29 @@
 }
 
 .title {
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: #201a19;
   position: relative;
   z-index: 10;
-  max-width: 540px;
+
+  @media (min-width: 768px) {
+    font-size: 2.25rem;
+    max-width: 540px;
+  }
 }
 
 .description {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: #524440;
   position: relative;
   z-index: 10;
-  max-width: 440px;
   margin-bottom: 0.5rem;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+    max-width: 440px;
+  }
 }
 
 .btnCta {

@@ -2,23 +2,29 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 import styles from "./Sidebar.module.scss";
 import { logout } from "@/services/authService";
 import toast from "react-hot-toast";
-
+import { useRouter } from "next/navigation";
 
 export default function Sidebar() {
+  const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
+
   const handleLogout = async () => {
     try {
       await logout();
       toast.success("Logout Successfully");
       localStorage.removeItem("access");
       localStorage.removeItem("refresh");
-      window.location.href = "/";
+      router.push("/");
     } catch (error) {
       console.error("Error during logout:", error);
     }
   };
+
+  const closeSidebar = () => setIsOpen(false);
 
   const pathname = usePathname();
 
@@ -33,57 +39,75 @@ export default function Sidebar() {
   };
 
   return (
-    <nav className={styles.sidebar}>
-      <div className={styles.brandWrapper}>
-        <Link href="/" className={styles.brand}>
-          Lakshyam AI
-        </Link>
-        <p className={styles.brandSub}>Career Platform</p>
-      </div>
+    <>
+      {/* Mobile hamburger button */}
+      <button
+        className={styles.hamburger}
+        onClick={() => setIsOpen(true)}
+        aria-label="Open sidebar"
+      >
+        <span className="material-symbols-outlined">menu</span>
+      </button>
 
-      <div className={styles.menuList}>
-        <Link href="/dashboard" className={getLinkClass("/dashboard")}>
-          <span className="material-symbols-outlined" style={getIconStyle("/dashboard")}>
-            dashboard
-          </span>
-          <span>Dashboard</span>
-        </Link>
+      {/* Overlay */}
+      <div
+        className={`${styles.overlay} ${isOpen ? styles.visible : ""}`}
+        onClick={closeSidebar}
+      />
 
-        <Link href="/dashboard#resumes" className={getLinkClass("/dashboard#resumes")}>
-          <span className="material-symbols-outlined" style={getIconStyle("/dashboard#resumes")}>
-            description
-          </span>
-          <span>My Resumes</span>
-        </Link>
+      {/* Sidebar nav */}
+      <nav className={`${styles.sidebar} ${isOpen ? styles.open : ""}`}>
+        <div className={styles.brandWrapper}>
+          <Link href="/" className={styles.brand} onClick={closeSidebar}>
+            Lakshyam AI
+          </Link>
+          <p className={styles.brandSub}>Career Platform</p>
+        </div>
 
-        <Link href="/dashboard#coach" className={getLinkClass("/dashboard#coach")}>
-          <span className="material-symbols-outlined" style={getIconStyle("/dashboard#coach")}>
-            mic
-          </span>
-          <span>Interview Coach</span>
-        </Link>
+        <div className={styles.menuList}>
+          <Link href="/dashboard" className={getLinkClass("/dashboard")} onClick={closeSidebar}>
+            <span className="material-symbols-outlined" style={getIconStyle("/dashboard")}>
+              dashboard
+            </span>
+            <span>Dashboard</span>
+          </Link>
 
-        <Link href="/dashboard#ats" className={getLinkClass("/dashboard#ats")}>
-          <span className="material-symbols-outlined" style={getIconStyle("/dashboard#ats")}>
-            analytics
-          </span>
-          <span>ATS Analysis</span>
-        </Link>
-      </div>
+          <Link href="/dashboard#resumes" className={getLinkClass("/dashboard#resumes")} onClick={closeSidebar}>
+            <span className="material-symbols-outlined" style={getIconStyle("/dashboard#resumes")}>
+              description
+            </span>
+            <span>My Resumes</span>
+          </Link>
 
-      <div className={styles.logoutSection}>
-        <Link href="/settings" className={getLinkClass("/settings")}>
-          <span className="material-symbols-outlined" style={getIconStyle("/settings")}>
-            settings
-          </span>
-          <span>Settings</span>
-        </Link>
+          <Link href="/dashboard#coach" className={getLinkClass("/dashboard#coach")} onClick={closeSidebar}>
+            <span className="material-symbols-outlined" style={getIconStyle("/dashboard#coach")}>
+              mic
+            </span>
+            <span>Interview Coach</span>
+          </Link>
 
-        <button className={styles.logoutItem} onClick={handleLogout}>
-          <span className="material-symbols-outlined">logout</span>
-          <span>Logout</span>
-        </button>
-      </div>
-    </nav>
+          <Link href="/dashboard#ats" className={getLinkClass("/dashboard#ats")} onClick={closeSidebar}>
+            <span className="material-symbols-outlined" style={getIconStyle("/dashboard#ats")}>
+              analytics
+            </span>
+            <span>ATS Analysis</span>
+          </Link>
+        </div>
+
+        <div className={styles.logoutSection}>
+          <Link href="/settings" className={getLinkClass("/settings")} onClick={closeSidebar}>
+            <span className="material-symbols-outlined" style={getIconStyle("/settings")}>
+              settings
+            </span>
+            <span>Settings</span>
+          </Link>
+
+          <button className={styles.logoutItem} onClick={handleLogout}>
+            <span className="material-symbols-outlined">logout</span>
+            <span>Logout</span>
+          </button>
+        </div>
+      </nav>
+    </>
   );
 }

@@ -6,41 +6,46 @@ import StatCards from "@/components/dashboard/StatCards";
 import QuickActions from "@/components/dashboard/QuickActions";
 import GrowthProgress from "@/components/dashboard/GrowthProgress";
 import RecentActivity from "@/components/dashboard/RecentActivity";
-import { getProfile,refreshToken } from "@/services/authService";
+import { getProfile, refreshToken } from "@/services/authService";
 import { useEffect, useState } from "react";
+import styles from "@/components/dashboard/DashboardLayout.module.scss";
 
 export default function DashboardPage() {
-  const [user, setUser] = useState(null);
-  useEffect(()=>{
+  const [user, setUser] = useState<string | null>(null);
+
+  useEffect(() => {
     const loadProfile = async () => {
       try {
         const response = await getProfile();
         setUser(response?.username);
-        console.log(response,"res")
-      } catch (error) {
-        await refreshToken();
-        const response = await getProfile();
-        setUser(response?.username);
+      } catch {
+        try {
+          await refreshToken();
+          const response = await getProfile();
+          setUser(response?.username);
+        } catch (err) {
+          console.error("Failed to load profile:", err);
+        }
       }
     };
     loadProfile();
-  },[]);
+  }, []);
 
   return (
-    <div className="bg-light min-h-screen font-sans">
+    <div className={styles.layout}>
       {/* Sidebar Navigation */}
       <Sidebar />
 
-      {/* Main Container */}
-      <div className="md:ml-64 d-flex flex-column min-h-screen">
+      {/* Main Container — offset on desktop */}
+      <div className={styles.mainWrapper}>
         {/* Top Navbar */}
         <DashboardHeader />
 
         {/* Page Content */}
-        <main className="p-4 p-md-5 max-w-max-width mx-auto w-100 flex-grow-1">
+        <main className={styles.pageContent}>
           {/* Header Section */}
           <div className="mb-4">
-            <h2 className="text-primary font-weight-bold">
+            <h2 className="fw-bold" style={{ color: "#6b3b2e" }}>
               Welcome back, {user}
             </h2>
             <p className="text-muted mt-2">
